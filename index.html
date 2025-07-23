@@ -1,7 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brian Richardson</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #3366cc;
+    }
+    img.profile {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1em;
+    }
+    section {
+      margin-top: 3em;
+    }
+    h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.3em;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+  <img src="assets/images/profile.jpg" alt="Profile picture" class="profile">
+  <h1>Brian Richardson</h1>
+  <p>PhD Student· UNC Chapel Hill</p>
+  <p>Email: brichson@ad.unc.edu</p>
+
+  <nav>
+    <a href="#cv">CV</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+  </nav>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <p><a href="assets/cv/CV_Richardson.pdf" target="_blank">Download CV (PDF)</a></p>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <ul>
+	<li>BIOS 672: Real Analysis and Measure Theory, UNC, Fall 2024</li>
+      <li>BIOS 600: Introduction to Biostatistics, UNC, Spring 2025</li>
+      <li>BIOS 672: Real Analysis and Measure Theory, UNC, Fall 2025</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol>
+      <li>
+        Smith, J., & Richardson, B. (2024). <em>A Novel Randomization-Based Inference Approach</em>. <strong>Journal of Biostats</strong>, 12(3), 45–60.
+      </li>
+    </ol>
+  </section>
+
+  <section id="talks">
+    <h2>Talks</h2>
+    <ul>
+      <li>“Spillover Effects in College Networks” — JSM 2024</li>
+      <li>“Flu Interventions and Causal Inference” — UNC Biostatistics Seminar</li>
+    </ul>
+  </section>
+
 </body>
 </html>
