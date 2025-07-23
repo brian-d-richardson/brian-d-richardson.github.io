@@ -1,49 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Brian Richardson</title>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 800px;
+      font-family: system-ui, sans-serif;
+      max-width: 900px;
       margin: auto;
-      padding: 2em;
-      line-height: 1.6;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
     }
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #3366cc;
+
+    header {
+      text-align: center;
     }
+
     img.profile {
       width: 150px;
       border-radius: 50%;
       margin-bottom: 1em;
     }
-    section {
-      margin-top: 3em;
+
+    nav {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
+
+    nav a {
+      padding: 0.5rem 1rem;
+      background: #e0e0e0;
+      color: #333;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #3366cc;
+      color: white;
+    }
+
+    section {
+      display: none;
+      margin-top: 2rem;
+    }
+
+    section:target {
+      display: block;
+    }
+
     h2 {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 0.3em;
+    }
+
+    li {
+      margin-bottom: 1em;
+    }
+
+    /* Default to showing "CV" if no anchor present */
+    body:not(:has(:target)) section#cv {
+      display: block;
+    }
+
+    body:not(:has(:target)) nav a[href="#cv"] {
+      background: #3366cc;
+      color: white;
+    }
+
+    /* Highlight active tab */
+    section:target ~ nav a {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    section:target ~ nav a[href="#cv"],
+    #cv:target ~ nav a[href="#cv"],
+    #teaching:target ~ nav a[href="#teaching"],
+    #publications:target ~ nav a[href="#publications"],
+    #talks:target ~ nav a[href="#talks"] {
+      background: #3366cc;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-  <img src="assets/images/profile.jpg" alt="Profile picture" class="profile">
-  <h1>Brian Richardson</h1>
-  <p>PhD Student, UNC Chapel Hill</p>
-  <p>Email: brichson@ad.unc.edu</p>
+  <header>
+    <img src="assets/images/profile.jpg" alt="Profile picture" class="profile" />
+    <h1>Brian Richardson</h1>
+    <p>PhD Student, UNC Chapel Hill</p>
+    <p>Email: brichson@ad.unc.edu</p>
+  </header>
 
-  <nav>
-    <a href="#cv">CV</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#publications">Publications</a>
-    <a href="#talks">Talks</a>
-  </nav>
-
+  <!-- Show CV by default if no tab selected -->
   <section id="cv">
     <h2>CV</h2>
     <p><a href="assets/cv/CV_Richardson.pdf" target="_blank">Download CV (PDF)</a></p>
@@ -52,72 +108,52 @@
   <section id="teaching">
     <h2>Teaching</h2>
     <ul>
-	<li>BIOS 672: Real Analysis and Measure Theory, UNC, Fall 2024</li>
-      <li>BIOS 600: Introduction to Biostatistics, UNC, Spring 2025</li>
-      <li>BIOS 672: Real Analysis and Measure Theory, UNC, Fall 2025</li>
+      <li><strong>Instructor</strong>, UNC Chapel Hill <br><em>Fall 2024, Fall 2025</em><br>BIOS 672: Topics in Real Analysis</li>
+      <li><strong>Instructor</strong>, UNC Chapel Hill <br><em>Spring 2025</em><br>BIOS 600: Principles of Statistical Inference</li>
+      <li><strong>TA</strong>, UNC Chapel Hill <br><em>Fall 2023</em><br>BIOS 500H: Introduction to Biostatistics</li>
+      <li><strong>TA</strong>, UNC Chapel Hill <br><em>Spring 2023</em><br>BIOS 668: Design of Public Health Studies</li>
+      <li><strong>Tutor</strong>, UNC Chapel Hill <br><em>Fall 2022</em><br>MATH 231 & BIOS 660</li>
+      <li><strong>Tutor</strong>, Chapel Hill High School <br><em>Aug 2020 – May 2022</em><br>Algebra, Geometry, Pre-Calculus, AP Calculus BC</li>
     </ul>
   </section>
 
   <section id="publications">
     <h2>Publications</h2>
+    <p><em>∗: Co-first authorship</em></p>
     <ol>
-      <li>
-        Smith, J., & Richardson, B. (2024). <em>A Novel Randomization-Based Inference Approach</em>. <strong>Journal of Biostats</strong>, 12(3), 45–60.
-      </li>
+      <li><strong>B.D. Richardson</strong><sup>∗</sup>, B. Blette<sup>∗</sup>, et al. <em>“Addressing confounding and continuous exposure measurement error…”</em> <strong>Biometrics</strong>, Apr. 2025.</li>
+      <li>B. Chi, F. Saidi, et al., <strong>B.D. Richardson</strong>. <em>“A patient-centered, combination intervention…”</em> <strong>JAIDS</strong>, 2024.</li>
+      <li>L. A. Graybill, B. Chi, <strong>B.D. Richardson</strong>, et al. <em>“Predictors of maternal HIV acquisition…”</em> <strong>PLOS ONE</strong>, Dec. 2024.</li>
+      <li>S. Lee<sup>∗</sup>, <strong>B.D. Richardson</strong><sup>∗</sup>, et al. <em>“Robust and efficient estimation…”</em> 2024.</li>
+      <li>S. Lotspeich, <strong>B.D. Richardson</strong>, et al. <em>“Making sense of censored covariates…”</em> <strong>Annual Review</strong>, Apr. 2024.</li>
+      <li>S. Lotspeich<sup>∗</sup>, <strong>B.D. Richardson</strong><sup>∗</sup>, et al. <em>“Quantifying the HIV reservoir…”</em> <strong>Biometrics</strong>, 2024.</li>
+      <li>J. Peterson, <strong>B.D. Richardson</strong>, et al. <em>“A histone deacetylase network…”</em> <strong>Cell Chemical Biology</strong>, Dec. 2023.</li>
+      <li>J. Shi, <strong>B.D. Richardson</strong>, Q. Lan, et al. <em>“Genome-wide association study…”</em> <strong>Nature Communications</strong>, 2023.</li>
     </ol>
   </section>
 
   <section id="talks">
     <h2>Talks</h2>
-<ul>
-  <li>
-    <strong>"When the Life Sciences Give You Lemons: Making the Most of Coarsened Data in Public Health Research"</strong><br>
-    <em>Feb 2025</em><br>
-    Invited Talk, UNC Department of Biostatistics, Chapel Hill, NC
-  </li>
-  <li>
-    <strong>"Addressing Confounding and Continuous Exposure Measurement Error Using Corrected Score Functions"</strong><br>
-    <a href="assets/slides/mismex_cirl_flash.pdf" target="_blank">(slides)</a>
-    <em>Jan 2025</em><br>
-    Seminar, UNC Causal Inference Research Lab, Chapel Hill, NC
-  </li>
-  <li>
-    <strong>"Robust and efficient estimation in the presence of a randomly censored covariate"</strong><br>
-    <em>Nov 2024</em><br>
-    Invited talk, UNC Biostatistics 75th Anniversary, Chapel Hill, NC
-  </li>
-  <li>
-    <strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong><br>
-    <em>Oct 2024</em><br>
-    Invited talk, UNC BIOS Student Seminar, Chapel Hill, NC
-  </li>
-  <li>
-    <strong>"Robust and efficient estimation in the presence of a randomly censored covariate"</strong><br>
-    <em>Aug 2024</em><br>
-    Contributed talk, JSM, Portland, OR
-  </li>
-  <li>
-    <strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong><br>
-    <em>Apr 2024</em><br>
-    Invited talk, UNC BIOS/STOR Joint Student Seminar, Chapel Hill, NC
-  </li>
-  <li>
-    <strong>"Doubly robust estimation under a randomly censored covariate"</strong><br>
-    <em>Mar 2024</em><br>
-    Contributed talk, ENAR Spring Meeting, Baltimore, MD
-  </li>
-  <li>
-    <strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong><br>
-    <em>Mar 2023</em><br>
-    Contributed talk, ENAR Spring Meeting, Nashville, TN
-  </li>
-  <li>
-    <strong>"Crash Course: Biostatistics and Epidemiology"</strong><br>
-    <em>May 2022</em><br>
-    Invited lecture, ENABLE HiDAV Boot Camp, University of North Carolina at Chapel Hill
-  </li>
-</ul>
+    <ul>
+      <li><strong>"Addressing confounding and continuous exposure measurement error using corrected score functions"</strong> <a href="assets/slides/mismex_jsm.pdf" target="_blank">(slides)</a><br><em>Aug 2025</em><br>Invited talk, JSM, Nashville, TN</li>
+      <li><strong>"When the Life Sciences Give You Lemons: Making the Most of Coarsened Data in Public Health Research"</strong><br><em>Feb 2025</em><br>Invited Talk, UNC Biostatistics</li>
+      <li><strong>"Addressing confounding and continuous exposure measurement error using corrected score functions"</strong> <a href="assets/slides/mismex_cirl_flash.pdf" target="_blank">(slides)</a><br><em>Jan 2025</em><br>UNC Causal Inference Research Lab</li>
+      <li><strong>"Robust and efficient estimation in the presence of a randomly censored covariate"</strong> <a href="assets/slides/sparcc_bios_anniversary.pdf" target="_blank">(slides)</a><br><em>Nov 2024</em><br>UNC Biostatistics 75th Anniversary</li>
+      <li><strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong> <a href="assets/slides/sldeepassay_student_seminar.pdf" target="_blank">(slides)</a><br><em>Oct 2024</em><br>UNC BIOS Student Seminar</li>
+      <li><strong>"Robust and efficient estimation in the presence of a randomly censored covariate"</strong><br><em>Aug 2024</em><br>Contributed talk, JSM, Portland, OR</li>
+      <li><strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong><br><em>Apr 2024</em><br>UNC BIOS/STOR Joint Seminar</li>
+      <li><strong>"Doubly robust estimation under a randomly censored covariate"</strong><br><em>Mar 2024</em><br>ENAR, Baltimore, MD</li>
+      <li><strong>"Quantifying the HIV Reservoir With Dilution Assays and Deep Viral Sequencing"</strong><br><em>Mar 2023</em><br>ENAR, Nashville, TN</li>
+      <li><strong>"Crash Course: Biostatistics and Epidemiology"</strong><br><em>May 2022</em><br>ENABLE HiDAV Boot Camp, UNC</li>
+    </ul>
   </section>
+
+  <nav>
+    <a href="#cv">CV</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+  </nav>
 
 </body>
 </html>
